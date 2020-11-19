@@ -28,6 +28,19 @@
 #define GOBJECTVARPTR(v, name, var_info_ptr) { AP_PARAM_GROUP, name, Parameters::k_param_ ## v, (const void *)&copter.v, {group_info_ptr : var_info_ptr}, AP_PARAM_FLAG_POINTER | AP_PARAM_FLAG_INFO_POINTER }
 #define GOBJECTN(v, pname, name, class) { AP_PARAM_GROUP, name, Parameters::k_param_ ## pname, (const void *)&copter.v, {group_info : class::var_info} }
 
+/*
+ * GSCALAR(throttle_filt,       //函数中对应的变量
+ *         "PILOT_THR_FILT",    //在地面站中显示的变量名称
+ *          0                   //默认值
+ *          )
+ * G2中地面站设置：
+ *AP_GROUPINFO("LAND_ALT_LOW", //在地面站中的变量名称
+ *              25,             //在G2中的序号
+ *              ParametersG2,   //定义在G2中的参数
+ *              land_alt_low,   //飞控代码中的变量名称
+ *              1000            //默认值
+ *              )
+ * */
 const AP_Param::Info Copter::var_info[] = {
     // @Param: SYSID_SW_MREV
     // @DisplayName: Eeprom format version number
@@ -985,6 +998,8 @@ const AP_Param::GroupInfo ParametersG2::var_info[] = {
     // @Path: ../libraries/AP_Follow/AP_Follow.cpp
     AP_SUBGROUPINFO(follow, "FOLL", 27, ParametersG2, AP_Follow),
 #endif
+    //添加在地面站中显示
+    AP_GROUPINFO("STAR_R_CM", 28, ParametersG2, star_radius_cm, 1000),
 
     AP_GROUPEND
 };

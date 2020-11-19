@@ -56,7 +56,7 @@ void Copter::ModeDrawStar::run()
 //生成五角星的顶点坐标
 void Copter::ModeDrawStar::generate_path()
 {
-    float radius_cm = 1000;//半径==》g2.star_radius_cm
+    float radius_cm = g2.star_radius_cm;//半径==》g2.star_radius_cm
 
     wp_nav->get_wp_stopping_point(path[0]);
 

@@ -586,6 +586,8 @@ public:
     // follow
     AP_Follow follow;
 #endif
+    //定义变量
+    AP_Float star_radius_cm;
 
 };
 
