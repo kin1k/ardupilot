@@ -973,8 +973,9 @@ private:
 #if MODE_FOLLOW_ENABLED == ENABLED
     ModeFollow mode_follow;
 #endif
-#if MODE_GUIDED_ENABLED == ENABLED
-    ModeGuided mode_guided;
+    ModeDrawStar mode_DrawStar;//添加的五角星模式
+ #if MODE_GUIDED_ENABLED == ENABLED
+     ModeGuided mode_guided;
 #endif
     ModeLand mode_land;
 #if MODE_LOITER_ENABLED == ENABLED
